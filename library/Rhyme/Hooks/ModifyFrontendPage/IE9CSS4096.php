@@ -27,38 +27,38 @@ class IE9CSS4096 extends \Controller
 {
     
     /**
-	 * Chop up any local CSS files that are too big and add an IE conditional
-	 *
-	 * @param string $strBuffer
-	 * @param string $strTemplate
-	 *
-	 * @returns string $strBuffer
-	 */
-	public function run($strBuffer, $strTemplate)
-	{
+     * Chop up any local CSS files that are too big and add an IE conditional
+     *
+     * @param string $strBuffer
+     * @param string $strTemplate
+     *
+     * @returns string $strBuffer
+     */
+    public function run($strBuffer, $strTemplate)
+    {
         $ua = \Environment::get('agent');
-    	if(stripos($strTemplate, 'fe_') !== false && $ua->browser=='ie')
-    	{
-        	$objDOM = new \DOMDocument();
-        	$objDOM->loadHTML($strBuffer);
-        	$objCSSLinks = $objDOM->getElementsByTagName('link');
-        	
-        	foreach($objCSSLinks as $link)
-        	{
-            	//Local files only
-            	if(strpos($link->getAttribute('href'), 'assets/css/') !== false)
-            	{
-                	//Replace ASSETS_URL
-                	$strFile = str_replace(TL_ASSETS_URL, '', $link->getAttribute('href'));
-                	
-                	$objFile = new \File($strFile);
-                	$strContent = $objFile->getContent();
-                	
-                	//Split up into chunklets
-                	$splitter = new Splitter();
-                	$count = $splitter->countSelectors($strContent)  - 4095;
-                	if ($count > 0) 
-                	{
+        if(stripos($strTemplate, 'fe_') !== false && $ua->browser=='ie')
+        {
+            $objDOM = new \DOMDocument();
+            $objDOM->loadHTML($strBuffer);
+            $objCSSLinks = $objDOM->getElementsByTagName('link');
+            
+            foreach($objCSSLinks as $link)
+            {
+                //Local files only
+                if(strpos($link->getAttribute('href'), 'assets/css/') !== false)
+                {
+                    //Replace ASSETS_URL
+                    $strFile = str_replace(TL_ASSETS_URL, '', $link->getAttribute('href'));
+                    
+                    $objFile = new \File($strFile);
+                    $strContent = $objFile->getContent();
+                    
+                    //Split up into chunklets
+                    $splitter = new Splitter();
+                    $count = $splitter->countSelectors($strContent)  - 4095;
+                    if ($count > 0) 
+                    {
                         $part = 2;
                         for($i = $count; $i > 0; $i -= 4095) 
                         {
@@ -85,12 +85,12 @@ class IE9CSS4096 extends \Controller
                             }
                         }
                     }
-            	}
-        	}
-        	
-        	$strBuffer = $objDOM->saveHTML();
-    	}
-    	
-    	return $strBuffer;
+                }
+            }
+            
+            $strBuffer = $objDOM->saveHTML();
+        }
+        
+        return $strBuffer;
     }
 }
