@@ -32,7 +32,7 @@ class IE9CSS4096 extends \Controller
      * @param string $strBuffer
      * @param string $strTemplate
      *
-     * @returns string $strBuffer
+     * @return string $strBuffer
      */
     public function run($strBuffer, $strTemplate)
     {
