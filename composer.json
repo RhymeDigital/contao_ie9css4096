@@ -1,0 +1,44 @@
+{
+    "name": "rhymedigital/contao_ie9css4096",
+    "description": "An extension for Contao Open Source CMS that fixes the <IE9 4096 selector limit in CSS files",
+    "keywords": [
+    	"contao", 
+    	"ie",
+    	"css",
+    	"4096"
+    ],
+    "type": "contao-module",
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "Rhyme Digital",
+            "homepage": "http://rhyme.digital"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "contao/core": ">=3.3.0,<4.0.0-dev",
+        "dlundgren/php-css-splitter": "dev-master",
+        "contao-community-alliance/composer-installer": "*",
+        "terminal42/contao-NamespaceClassLoader": ">=1.0.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "Rhyme\\": [
+                "library/"
+            ]
+        }
+    },
+    "extra": {
+        "contao": {
+            "sources": {
+                "": "system/modules/ie9css4096"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist"
+    }
+}
