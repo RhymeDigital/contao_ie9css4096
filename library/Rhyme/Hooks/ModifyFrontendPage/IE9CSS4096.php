@@ -71,8 +71,6 @@ class IE9CSS4096 extends \Controller
                                 $objNewFile = new \File($strFilename);
                                 $objNewFile->write($strChunkContent);
                                 $objNewFile->close();
-                                
-                                $part++;
                             }
                             
                             //Add IE Conditional
@@ -83,6 +81,8 @@ class IE9CSS4096 extends \Controller
                                 $objChildNode = new \DOMComment($strComment);
                                 $head->appendChild($objChildNode);
                             }
+                            
+                            $part++;
                         }
                     }
                 }
