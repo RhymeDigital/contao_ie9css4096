@@ -13,4 +13,4 @@
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['modifyFrontendPage'][] = array('\Rhyme\Hooks\ModifyFrontendPage\IE9CSS4096', 'run');
+$GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = array('\Rhyme\Hooks\OutputFrontendTemplate\IE9CSS4096', 'run');
