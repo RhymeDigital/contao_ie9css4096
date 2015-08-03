@@ -20,7 +20,7 @@
         "contao/core": ">=3.3.0,<4.0.0-dev",
         "csssplitter/cssplitter": "@dev",
         "contao-community-alliance/composer-installer": "*",
-        "terminal42/contao-NamespaceClassLoader": ">=1.0.2"
+        "terminal42/contao-namespace-class-loader": ">=1.0.2"
     },
     "autoload": {
         "psr-0": {
