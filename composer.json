@@ -18,7 +18,7 @@
     "require": {
         "php": ">=5.3.2",
         "contao/core": ">=3.3.0,<4.0.0-dev",
-        "dlundgren/cssplitter": "@dev",
+        "dlundgren/css-splitter": "@dev",
         "contao-community-alliance/composer-installer": "*",
         "terminal42/contao-namespace-class-loader": ">=1.0.2"
     },
