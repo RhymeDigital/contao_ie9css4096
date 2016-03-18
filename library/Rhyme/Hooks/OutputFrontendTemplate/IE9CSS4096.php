@@ -38,7 +38,7 @@ class IE9CSS4096 extends \Controller
      */
     public function run($strBuffer, $strTemplate)
     {
-        if(stripos($strTemplate, 'fe_') !== false)
+        if(stripos($strTemplate, 'fe_') !== false && !\Config::get('debugMode'))
         {
             //We need to pre-assemble the CSS files and determine their length, then split up if necessary
             global $objPage;
